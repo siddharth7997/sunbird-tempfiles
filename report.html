@@ -1,0 +1,47 @@
+<div class="form-group">
+    <label for="sel1">Course</label>
+    <select class="form-control" ng-model="bow" ng-options="y for y in courses" ng-change="update_things(bow)">
+    </select>
+</div>
+
+
+<div class="form-group" ng-if="bow && showContent" ng-cloak>
+    <label for="sel1">Select The content:</label>
+    <select class="form-control" id="sel1" ng-options="z for z in contents" ng-model="content" ng-change="contentConsume(content)">
+    </select>
+</div>
+
+<br>
+<div class="card" ng-if="bow && show && show_graph">
+    <div class="card-body bg-light">
+            <canvas id="chart_container" style="position:relative;">
+            </canvas>
+    </div>
+</div>
+
+<br>
+<br>
+
+<div class="card" ng-if="bow && show_table">
+    <div class="card-header">
+        {{table_heading}}
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th ng-repeat="x in tableheader">
+                    {{x}}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="x in data">
+                <td ng-repeat="y in x">
+                    {{y}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>    
